@@ -27,6 +27,14 @@
 #
 #
 
+service vendor.logdump /system/bin/sh /vendor/bin/logdump.sh
+    disabled
+    group root
+    user root
+
+on init
+    start vendor.logdump
+
 import /vendor/etc/init/hw/init.qcom.power.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
