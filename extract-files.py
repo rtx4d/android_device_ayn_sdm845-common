@@ -18,10 +18,9 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/xiaomi/sdm845-common',
+    'device/ayn/sdm845-common',
     'hardware/qcom-caf/sdm845',
     'hardware/qcom-caf/wlan',
-    'hardware/xiaomi',
     'vendor/qcom/opensource/commonsys-intf/display',
     'vendor/qcom/opensource/commonsys/display',
     'vendor/qcom/opensource/dataservices',
@@ -74,15 +73,15 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libbinder_shim.so')
         .add_needed('libinput_shim.so'),
-    'vendor/bin/pm-service': blob_fixup()
-        .add_needed('libutils-v33.so'),
-    ('vendor/lib64/libwvhidl.so', 'vendor/lib64/mediadrm/libwvdrmengine.so'): blob_fixup()
-        .add_needed('libcrypto_shim.so'),
+    'system_ext/lib64/libantradio.so': blob_fixup()
+        .add_needed('libnativehelper_shim.so'),
+    'vendor/lib64/hw/camera.qcom.so': blob_fixup()
+        .add_needed('libcomparetf2_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
     'sdm845-common',
-    'xiaomi',
+    'ayn',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
