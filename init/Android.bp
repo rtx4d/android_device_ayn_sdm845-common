@@ -4,6 +4,20 @@
 //
 
 prebuilt_etc {
+    name: "fstab.qcom",
+    src: "fstab.qcom",
+    soc_specific: true,
+    ramdisk_available: true,
+}
+
+prebuilt_etc {
+    name: "init.target.rc",
+    src: "init.target.rc",
+    sub_dir: "init/hw",
+    soc_specific: true,
+}
+
+prebuilt_etc {
     name: "init.qcom.power.rc",
     src: "init.qcom.power.rc",
     sub_dir: "init/hw",

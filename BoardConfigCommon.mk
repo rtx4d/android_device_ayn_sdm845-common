@@ -4,7 +4,19 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-COMMON_PATH := device/xiaomi/sdm845-common
+COMMON_PATH := device/ayn/sdm845-common
+
+BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
+
+# A/B
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    system \
+    vbmeta \
+    vendor
 
 # Architecture
 TARGET_ARCH := arm64
@@ -30,19 +42,30 @@ BOARD_BOOT_HEADER_VERSION := 1
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA84000 androidboot.hardware=qcom androidboot.console=ttyMSM0 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 service_locator.enable=1 swiotlb=2048 androidboot.configfs=true loop.max_part=7 androidboot.usbcontroller=a600000.dwc3
 BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/1d84000.ufshc
-BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CONFIG := vendor/xiaomi/mi845_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm845
+TARGET_KERNEL_CONFIG := vendor/ayn/sdm845-perf_defconfig
+TARGET_KERNEL_SOURCE := kernel/ayn/sdm845
 
 # Platform
 TARGET_BOARD_PLATFORM := sdm845
 
 # Audio
-TARGET_PROVIDES_AUDIO_EXTNS := true
+AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
+AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
+AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
+AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
+AUDIO_FEATURE_ENABLED_SSR := true
+BOARD_SUPPORTS_SOUND_TRIGGER := true
+BOARD_SUPPORTS_OPENSOURCE_STHAL := true
+BOARD_USES_ALSA_AUDIO := true
+USE_CUSTOM_AUDIO_POLICY := 1
+
+# Display
+TARGET_SCREEN_DENSITY := 369
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
@@ -55,7 +78,6 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix_legacy.xml \
-    hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml \
     vendor/lineage/config/device_framework_matrix.xml
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
@@ -67,41 +89,19 @@ TARGET_LMKD_STATS_LOG := true
 TARGET_USES_ION := true
 
 # Partitions
-AB_OTA_UPDATER := false
+BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4831838208
+BOARD_VENDORIMAGE_PARTITION_SIZE := 1610612736
 
-BOARD_BOOTIMAGE_PARTITION_SIZE := 67092480
-BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 57453555712
-
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
-
-BOARD_SUPER_PARTITION_BLOCK_DEVICES := system vendor cust
-BOARD_SUPER_PARTITION_METADATA_DEVICE := system
-BOARD_SUPER_PARTITION_SIZE := 5167382528
-BOARD_SUPER_PARTITION_CUST_DEVICE_SIZE := 872415232
-BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 3221225472
-BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := 1073741824
-
-BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
-BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 5163188224 # (BOARD_SUPER_PARTITION_SIZE - 4194304) 4MiB overhead
-
-include vendor/lineage/config/BoardConfigReservedSize.mk
 
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
-TARGET_COPY_OUT_ODM := odm
-TARGET_COPY_OUT_PRODUCT := product
-TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Properties
@@ -116,17 +116,12 @@ BOARD_USES_QCOM_HARDWARE := true
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
 
 # Recovery
+BOARD_USES_RECOVERY_AS_BOOT := true
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/init/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 
-# Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_xiaomi
-TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)
-
-# RIL
-ENABLE_VENDOR_RIL_SERVICE := true
-
 # Security patch level
-VENDOR_SECURITY_PATCH := 2020-12-01
+VENDOR_SECURITY_PATCH := 2020-04-05
 
 # SELinux
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
@@ -160,4 +155,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
-include vendor/xiaomi/sdm845-common/BoardConfigVendor.mk
+include vendor/ayn/sdm845-common/BoardConfigVendor.mk
