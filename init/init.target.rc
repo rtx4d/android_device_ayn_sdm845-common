@@ -27,3 +27,25 @@
 #
 #
 
+on post-fs-data
+	# Fan
+	chown system system /sys/class/gpio5_pwm2/state
+	chown system system /sys/class/gpio5_pwm2/duty
+    chmod 0660 /sys/class/gpio5_pwm2/state
+    chmod 0660 /sys/class/gpio5_pwm2/duty
+
+	# Leds
+	chown system system /sys/class/gpio/gpio129/value
+	chown system system /sys/class/gpio/gpio25/value
+	chown system system /sys/class/gpio/gpio87/value
+	chown system system /sys/class/gpio/gpio7/value
+    chmod 0660 /sys/class/gpio/gpio129/value
+    chmod 0660 /sys/class/gpio/gpio25/value
+    chmod 0660 /sys/class/gpio/gpio87/value
+    chmod 0660 /sys/class/gpio/gpio7/value
+
+    chown system system /sys/class/gpio5_pwm2/thermal_mode
+    chmod 0660 /sys/class/gpio5_pwm2/thermal_mode
+
+on property:sys.odinparts.thermal_restart=*
+    restart thermal-engine
