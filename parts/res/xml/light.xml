@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/light_title">
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:key="light_master"
+        android:title="@string/light_master_title" />
+
+    <SwitchPreferenceCompat
+        android:key="light_joystick"
+        android:title="@string/light_joystick_title"
+        android:summary="@string/light_joystick_summary"
+        android:defaultValue="false" />
+
+    <SwitchPreferenceCompat
+        android:key="light_handle"
+        android:title="@string/light_handle_title"
+        android:summary="@string/light_handle_summary"
+        android:defaultValue="false" />
+
+</PreferenceScreen>

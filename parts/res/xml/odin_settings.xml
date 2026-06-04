@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/odin_settings_title">
+
+    <PreferenceScreen
+        android:key="performance"
+        android:fragment="org.lineageos.settings.odin.performance.PerformanceActivity"
+        android:icon="@drawable/ic_performance"
+        android:title="@string/performance_title"
+        android:summary="@string/performance_summary" />
+
+    <PreferenceScreen
+        android:key="light"
+        android:fragment="org.lineageos.settings.odin.light.LightActivity"
+        android:icon="@drawable/ic_light"
+        android:title="@string/light_title"
+        android:summary="@string/light_summary" />
+</PreferenceScreen>

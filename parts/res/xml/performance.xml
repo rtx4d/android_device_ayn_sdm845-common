@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/performance_title">
+
+    <ListPreference
+        android:key="performance_mode"
+        android:title="@string/performance_mode_title"
+        android:summary="%s"
+        android:entries="@array/performance_mode_entries"
+        android:entryValues="@array/performance_mode_values"
+        android:defaultValue="0" />
+
+    <ListPreference
+        android:key="fan_mode"
+        android:title="@string/fan_mode_title"
+        android:summary="%s"
+        android:entries="@array/fan_mode_entries"
+        android:entryValues="@array/fan_mode_values"
+        android:defaultValue="0" />
+
+</PreferenceScreen>
