@@ -32,3 +32,7 @@ on post-fs-data
 	# Thermal Modes
 	chown root system /sys/class/gpio5_pwm2/thermal_mode
 	chmod 0660 /sys/class/gpio5_pwm2/thermal_mode
+
+on property:sys.boot_completed=1
+	write /sys/class/gpio5_pwm2/thermal_mode 2
+	restart thermal-engine
