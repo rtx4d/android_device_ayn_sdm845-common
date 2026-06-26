@@ -135,6 +135,9 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
 
+# Camera
+PRODUCT_NO_CAMERA := true
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.target.rc \
