@@ -205,6 +205,10 @@ PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
 
+# Launcher
+PRODUCT_PACKAGES += \
+    Launcher3ResOverlay
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light-service.lineage
