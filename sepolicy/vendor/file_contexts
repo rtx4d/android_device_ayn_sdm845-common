@@ -63,3 +63,8 @@
 # Sockets
 /dev/socket/audio_hw_socket                   u:object_r:audio_socket:s0
 /dev/socket/gps                               u:object_r:gps_socket:s0
+
+# Aynparts
+/vendor/bin/left_stick_axis_swap                                                                        u:object_r:left_stick_axis_swap_exec:s0
+/sys/devices/virtual/moorechip-joystick/joystick(/.*)?                                                  u:object_r:vendor_sysfs_aynparts:s0
+/sys/devices/platform/soc/soc:gpio-leds/leds/(left|right):(stick|strip)(/.*)?                           u:object_r:vendor_sysfs_aynparts:s0

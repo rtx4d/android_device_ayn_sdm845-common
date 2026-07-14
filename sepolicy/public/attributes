@@ -1,1 +1,2 @@
 hal_attribute_lineage(mlipay)
+attribute vendor_sysfs_aynparts_type;
