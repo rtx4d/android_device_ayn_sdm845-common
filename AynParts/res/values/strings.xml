@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- AynParts main -->
+    <string name="ayn_panel_title">Gamepad</string>
+    <string name="ayn_panel_summary">Buttons, layout, lighting, joystick calibration</string>
+
+    <!-- Gamepad layout category -->
+    <string name="gamepad_buttons_category_title">Buttons</string>
+    <string name="gamepad_layout_title">Layout</string>
+    <string name="gamepad_trigger_mode_title">Trigger mode</string>
+    <string name="gamepad_mappable_0_title">M1</string>
+    <string name="gamepad_mappable_1_title">M2</string>
+
+    <!-- Gamepad layout entries -->
+    <string name="layout_xbox">Xbox</string>
+    <string name="layout_nintendo">Nintendo</string>
+
+    <!-- Gamepad trigger mode entries -->
+    <string name="trigger_mode_analog">Analog</string>
+    <string name="trigger_mode_digital">Digital</string>
+
+    <!-- Gamepad mappable entries -->
+    <string name="mappable_none">None</string>
+    <string name="mappable_home">HOME</string>
+    <string name="mappable_select">SELECT</string>
+    <string name="mappable_start">START</string>
+    <string name="mappable_back">BACK</string>
+    <string name="mappable_a">A</string>
+    <string name="mappable_b">B</string>
+    <string name="mappable_x">X</string>
+    <string name="mappable_y">Y</string>
+    <string name="mappable_l1">L1</string>
+    <string name="mappable_l2">L2</string>
+    <string name="mappable_l3">L3</string>
+    <string name="mappable_r1">R1</string>
+    <string name="mappable_r2">R2</string>
+    <string name="mappable_r3">R3</string>
+    <string name="mappable_down">DOWN</string>
+    <string name="mappable_up">UP</string>
+    <string name="mappable_left">LEFT</string>
+    <string name="mappable_right">RIGHT</string>
+
+    <!-- LED lights -->
+    <string name="lighting_category_title">Lighting</string>
+    <string name="led_lights_title">LED lights</string>
+    <string name="led_lights_summary">Set device light color and brightness</string>
+    <string name="led_settings_title">LED Lights</string>
+    <string name="led_target_title">Apply to</string>
+    <string name="led_target_left_side">Left side</string>
+    <string name="led_target_right_side">Right side</string>
+    <string name="led_target_all">All lights</string>
+    <string name="led_enabled">Device lighting</string>
+    <string name="led_enabled_summary">Controls all stick and strip LEDs</string>
+    <string name="led_strip_lights_enabled">Strip lights</string>
+    <string name="led_color_title">Color</string>
+    <string name="led_brightness">Brightness</string>
+    <string name="led_percent_value">%1$d%%</string>
+    <!-- Simple on/off layout (hardware without color or brightness control) -->
+    <string name="led_lights_simple_summary">Turn the side strip and stick lights on or off</string>
+    <string name="led_individual_lights_title">Lights</string>
+    <string name="led_left_strip">Left strip</string>
+    <string name="led_left_stick">Left stick</string>
+    <string name="led_right_strip">Right strip</string>
+    <string name="led_right_stick">Right stick</string>
+    <string name="led_error_missing">LED node is not available</string>
+    <string name="led_error_write">Could not write LED setting. Check node permissions.</string>
+    <string name="led_error_read">Could not read LED channel order.</string>
+
+    <!-- Joystick calibration -->
+    <string name="joystick_category_title">Joystick</string>
+    <string name="joystick_calibration_title">Joystick calibration</string>
+    <string name="joystick_calibration_summary">Calibrate analog sticks</string>
+    <string name="calibration_title">Joystick Calibration</string>
+    <string name="calibration_intro_description">This wizard will calibrate your analog sticks:\n\n1. Center — leave both sticks relaxed\n2–3. Range — rotate each stick in full circles\n4–5. Deadzone — pull and release each stick several times\n\nEach step advances once enough data is collected.</string>
+    <string name="calibration_start">Start</string>
+    <string name="calibration_cancel">Cancel</string>
+    <string name="calibration_phase_center_title">Step 1: Center</string>
+    <string name="calibration_phase_center_desc">Leave both sticks centered and relaxed. Next will appear once readings are stable.</string>
+    <string name="calibration_phase_range_left_title">Step 2: Left Stick Range</string>
+    <string name="calibration_phase_range_left_desc">Slowly rotate the left stick in full circles, reaching all extremes. Next will appear once enough range is detected.</string>
+    <string name="calibration_phase_range_right_title">Step 3: Right Stick Range</string>
+    <string name="calibration_phase_range_right_desc">Slowly rotate the right stick in full circles, reaching all extremes. Next will appear once enough range is detected.</string>
+    <string name="calibration_phase_deadzone_left_title">Step 4: Left Stick Deadzone</string>
+    <string name="calibration_phase_deadzone_left_desc">Pull the left stick to the edge and release it. Repeat at least 3 times from different directions. Next will appear once enough settle data is collected.</string>
+    <string name="calibration_phase_deadzone_right_title">Step 5: Right Stick Deadzone</string>
+    <string name="calibration_phase_deadzone_right_desc">Pull the right stick to the edge and release it. Repeat at least 3 times from different directions. Next will appear once enough settle data is collected.</string>
+    <string name="calibration_next">Next</string>
+    <string name="calibration_accept">Accept</string>
+    <string name="calibration_retry">Retry</string>
+    <string name="calibration_test_title">Test Calibration</string>
+    <string name="calibration_test_desc">Compare before and after. The calibrated sticks should center cleanly and reach all edges.</string>
+    <string name="calibration_test_before">Before (raw)</string>
+    <string name="calibration_test_after">After (calibrated)</string>
+</resources>

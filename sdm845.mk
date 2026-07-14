@@ -237,6 +237,10 @@ PRODUCT_PACKAGES += \
     vendor_dsp_mountpoint \
     vendor_firmware_mnt_mountpoint
 
+# Parts
+PRODUCT_PACKAGES += \
+    AynParts
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.3.vendor \
