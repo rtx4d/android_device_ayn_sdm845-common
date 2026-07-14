@@ -1,5 +1,8 @@
 allow hal_power_default input_device:dir r_dir_perms;
 allow hal_power_default input_device:chr_file rw_file_perms;
 
+allow hal_power_default sysfs_msm_perf:dir search;
+allow hal_power_default sysfs_msm_perf:file { open write };
+
 # To do powerhint on nodes defined in powerhint.json
 allow hal_power_default device_latency:chr_file rw_file_perms;
