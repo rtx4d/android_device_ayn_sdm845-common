@@ -77,6 +77,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libnativehelper_shim.so'),
     'vendor/lib64/hw/camera.qcom.so': blob_fixup()
         .add_needed('libcomparetf2_shim.so'),
+    'vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc': blob_fixup()
+        .regex_replace('group system', 'group system\n    disabled'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
