@@ -593,9 +593,6 @@ vendor/bin/time_daemon
 vendor/lib/libtime_genoff.so
 vendor/lib64/libtime_genoff.so
 
-# TouchMapping
-vendor/app/TouchMapping/TouchMapping.apk
-
 # Trusted Execution Environment
 vendor/app/TrustZoneAccessService/TrustZoneAccessService.apk;PRESIGNED
 vendor/lib64/libminkdescriptor.so
